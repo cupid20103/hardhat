@@ -6,13 +6,8 @@ require("dotenv").config();
 require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-etherscan");
 
-const {
-  MAIN_API_URL,
-  ROPSTEN_API_URL,
-  RINKEBY_API_URL,
-  PRIVATE_KEY,
-  ETHERSCAN_API_KEY,
-} = process.env;
+const { INFURA_API_KEY, PRIVATE_KEY, ETHERSCAN_API_KEY } =
+  process.env;
 
 module.exports = {
   solidity: {
@@ -30,20 +25,14 @@ module.exports = {
       url: "http://127.0.0.1:8545",
     },
     mainnet: {
-      url: MAIN_API_URL,
-      chainId: 1,
-      gasPrice: 1000000000,
+      url: `https://mainnet.infura.io/v3/${INFURA_API_KEY}`,
+      chainId: 1,  // optional variable
+      gasPrice: 1000000000,  // optional variable
       accounts: [`0x${PRIVATE_KEY}`],
     },
-    ropsten: {
-      url: ROPSTEN_API_URL,
-      chainId: 3,
-      gasPrice: 20000000000,
-      accounts: [`0x${PRIVATE_KEY}`],
-    },
-    rinkeby: {
-      url: RINKEBY_API_URL,
-      chainId: 4,
+    goerli: {
+      url: `https://goerli.infura.io/v3/${INFURA_API_KEY}`,
+      chainId: 5,
       gasPrice: 20000000000,
       accounts: [`0x${PRIVATE_KEY}`],
     },
