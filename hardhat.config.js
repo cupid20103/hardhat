@@ -11,7 +11,7 @@ const { INFURA_API_KEY, PRIVATE_KEY, ETHERSCAN_API_KEY } =
 
 module.exports = {
   solidity: {
-    version: "0.7.3",
+    version: "0.8.4",
     settings: {
       optimizer: {
         enabled: true,

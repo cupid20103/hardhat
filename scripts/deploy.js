@@ -1,7 +1,12 @@
 async function main() {
-  const HelloWorld = await ethers.getContractFactory("HelloWorld");
+  const [deployer] = await ethers.getSigners();
 
+  console.log("Deploying contracts with the account:", deployer.address);
+  console.log("Account balance:", (await deployer.getBalance()).toString());
+
+  const HelloWorld = await ethers.getContractFactory("HelloWorld");
   const hello_world = await HelloWorld.deploy("HelloWorld!");
+  
   console.log("Contract deployed to address:", hello_world.address);
 }
 
