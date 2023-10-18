@@ -4,10 +4,10 @@ async function main() {
   console.log("Deploying contracts with the account:", deployer.address);
   console.log("Account balance:", (await deployer.getBalance()).toString());
 
-  const HelloWorld = await ethers.getContractFactory("HelloWorld");
-  const hello_world = await HelloWorld.deploy("HelloWorld!");
+  const Transfer = await ethers.getContractFactory("Transfer");
+  const transer = await Transfer.deploy();
   
-  console.log("Contract deployed to address:", hello_world.address);
+  console.log("Contract deployed to address:", transer.address);
 }
 
 main()
